@@ -1,0 +1,32 @@
+{
+  "welcomeFile": "index.html",
+  "authenticationMethod": "route",
+  "websockets": {
+    "enabled": true
+  },
+  "routes": [
+    {
+      "source": "^/app/(.*)$",
+      "target": "$1",
+      "localDir": ".",
+      "cacheControl": "no-cache, no-store, must-revalidate"
+    },
+    {
+      "source": "^/appconfig/",
+      "localDir": ".",
+      "cacheControl": "no-cache, no-store, must-revalidate"
+    },
+    {
+      "source": "^/odata/(.*)$",
+      "target": "/odata/$1",
+      "destination": "srv-api",
+      "csrfProtection": true
+    },
+    {
+      "source": "^/(.*)",
+      "localDir": "web",
+      "authenticationType": "xsuaa",
+      "csrfProtection": false
+    }
+  ]
+}
