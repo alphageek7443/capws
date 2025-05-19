@@ -23,6 +23,12 @@
       "csrfProtection": true
     },
     {
+      "source": "^/ws/(.*)$",
+      "target": "/ws/$1",
+      "destination": "srv-api",
+      "csrfProtection": false
+    },
+    {
       "source": "^/(.*)",
       "localDir": "web",
       "authenticationType": "xsuaa",
